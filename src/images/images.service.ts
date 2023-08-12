@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import { map } from 'rxjs';
+import { AddFavCatDto } from '../dto/add-fav-cat.dto';
 
 const headersRequest = {
   'x-api-key': 'f221c99b-304d-4404-b111-cbd3ddccf31a',
@@ -25,6 +26,18 @@ export class ImagesService {
   async getFavourites() {
     return this.httpService
       .get(`${apiUrl}/favourites`, {
+        headers: headersRequest,
+      })
+      .pipe(
+        map((axiosResponse: AxiosResponse) => {
+          return axiosResponse.data;
+        }),
+      );
+  }
+
+  async addFavourite(addFavCatDto: AddFavCatDto) {
+    return this.httpService
+      .post(`${apiUrl}/favourites`, addFavCatDto, {
         headers: headersRequest,
       })
       .pipe(
