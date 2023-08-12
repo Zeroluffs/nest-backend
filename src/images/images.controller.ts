@@ -9,4 +9,9 @@ export class ImagesController {
   findAll() {
     return this.imageService.getImages();
   }
+
+  @Get('favourites')
+  findFavourites() {
+    return this.imageService.getFavourites();
+  }
 }
