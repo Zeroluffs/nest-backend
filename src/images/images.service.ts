@@ -5,7 +5,7 @@ import { map } from 'rxjs';
 import { AddFavCatDto } from '../dto/add-fav-cat.dto';
 
 const headersRequest = {
-  'x-api-key': `${process.env.CAT_API_KEY}`,
+  'x-api-key': 'f221c99b-304d-4404-b111-cbd3ddccf31a',
 };
 const apiUrl = `https://api.thecatapi.com/v1`;
 @Injectable()
