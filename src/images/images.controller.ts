@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { ImagesService } from './images.service';
 import { AddFavCatDto } from '../dto/add-fav-cat.dto';
 
@@ -19,5 +27,10 @@ export class ImagesController {
   @Post('favourites/add')
   addFavourite(@Body() body: AddFavCatDto) {
     return this.imageService.addFavourite(body);
+  }
+  @Delete('favourites/:favourite_id')
+  @HttpCode(204)
+  deleteFavourite(@Param('favourite_id') favourite_id: string) {
+    return this.imageService.deleteFavourite(favourite_id);
   }
 }

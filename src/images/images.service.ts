@@ -46,4 +46,16 @@ export class ImagesService {
         }),
       );
   }
+
+  async deleteFavourite(favourite_id: string) {
+    return this.httpService
+      .delete(`${apiUrl}/favourites/${favourite_id}`, {
+        headers: headersRequest,
+      })
+      .pipe(
+        map((axiosResponse: AxiosResponse) => {
+          return axiosResponse.data;
+        }),
+      );
+  }
 }
