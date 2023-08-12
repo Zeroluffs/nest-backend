@@ -27,6 +27,6 @@ export class CatsService {
   }
 
   async update(id: string, updateCat: UpdateCatDot) {
-    return this.catModel.findByIdAndUpdate(id, updateCat);
+    return this.catModel.findByIdAndUpdate(id, updateCat, { new: true });
   }
 }
