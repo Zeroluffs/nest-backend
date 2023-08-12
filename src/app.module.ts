@@ -9,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     ImagesModule,
     ConfigModule.forRoot(),
-    MongooseModule.forRoot('mongodb://localhost:27017/catdb'),
+    MongooseModule.forRoot(process.env.MONGO_URI),
     CatsModule,
   ],
 })
